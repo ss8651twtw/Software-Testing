@@ -125,7 +125,7 @@ namespace {
     EXPECT_STREQ("Isosceles", IsTriangle(1, 2, 2));
     EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(1, 2, 201));
     EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(1, 200, 201));
-    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(2, 1, 0))
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(2, 1, 0));
     EXPECT_STREQ("Not a triangle", IsTriangle(200, 199, 1));
     EXPECT_STREQ("Scalene", IsTriangle(200, 199, 2));
     EXPECT_STREQ("Scalene", IsTriangle(200, 199, 100));
