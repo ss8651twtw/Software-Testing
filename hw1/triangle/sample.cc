@@ -1,5 +1,7 @@
 #include "sample.h"
 
-int IsTriangle(int a, int b, int c) {
-  return 0;
+char ans[100] = {0};
+
+char* IsTriangle(int a, int b, int c) {
+  return ans;
 }

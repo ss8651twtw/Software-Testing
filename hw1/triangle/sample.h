@@ -1,3 +1,3 @@
 #pragma once
 
-int IsTriangle(int a, int b, int c);
+char* IsTriangle(int a, int b, int c);
