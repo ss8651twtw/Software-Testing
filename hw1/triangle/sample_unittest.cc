@@ -7,7 +7,7 @@ namespace {
     EXPECT_STREQ("Isosceles", IsTriangle(1, 100, 100));
     EXPECT_STREQ("Isosceles", IsTriangle(2, 100, 100));
     EXPECT_STREQ("Isosceles", IsTriangle(199, 100, 100));
-    EXPECT_STREQ("Isosceles", IsTriangle(200, 100, 100));
+    EXPECT_STREQ("Not a triangle", IsTriangle(200, 100, 100));
     EXPECT_STREQ("Isosceles", IsTriangle(100, 100, 1));
     EXPECT_STREQ("Isosceles", IsTriangle(100, 100, 2));
     EXPECT_STREQ("Isosceles", IsTriangle(100, 100, 199));
