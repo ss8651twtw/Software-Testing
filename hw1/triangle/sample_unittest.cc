@@ -234,4 +234,18 @@ namespace {
     EXPECT_STREQ("Isosceles", IsTriangle(169, 115, 169));
   }
 
+  TEST(IsTriangleTest, DecisionTable) {
+    EXPECT_STREQ("Not a triangle", IsTriangle(4, 1, 2));
+    EXPECT_STREQ("Not a triangle", IsTriangle(1, 4, 2));
+    EXPECT_STREQ("Not a triangle", IsTriangle(1, 2, 4));
+    EXPECT_STREQ("Equilateral", IsTriangle(5, 5, 5));
+    /* QQ */
+    /* QQ */
+    EXPECT_STREQ("Isosceles", IsTriangle(2, 2, 3));
+    /* QQ */
+    EXPECT_STREQ("Isosceles", IsTriangle(2, 3, 2));
+    EXPECT_STREQ("Isosceles", IsTriangle(3, 2, 2));
+    EXPECT_STREQ("Scalene", IsTriangle(3, 4, 5));
+  }
+
 }
