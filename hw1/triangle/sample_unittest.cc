@@ -141,4 +141,97 @@ namespace {
     EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(200, 200, 201));
   }
 
+  TEST(IsTriangleTest, WeakNormal) {
+    EXPECT_STREQ("Not a triangle", IsTriangle(61, 73, 2));
+    EXPECT_STREQ("Isosceles", IsTriangle(86, 146, 146));
+    EXPECT_STREQ("Scalene", IsTriangle(169, 146, 195));
+  }
+
+  TEST(IsTriangleTest, SrongNormal) {
+    EXPECT_STREQ("Scalene", IsTriangle(86, 24, 92));
+    EXPECT_STREQ("Not a triangle", IsTriangle(86, 24, 180));
+    EXPECT_STREQ("Scalene", IsTriangle(86, 103, 92));
+    EXPECT_STREQ("Isosceles", IsTriangle(86, 103, 103));
+    EXPECT_STREQ("Not a triangle", IsTriangle(143, 24, 92));
+    EXPECT_STREQ("Not a triangle", IsTriangle(143, 24, 180));
+    EXPECT_STREQ("Scalene", IsTriangle(143, 103, 92));
+    EXPECT_STREQ("Equilateral", IsTriangle(143, 143, 143));
+  }
+
+  TEST(IsTriangleTest, WeakRobust) {
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 20, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 190, 201));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(70, 0, 201));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(70, 20, 0));
+    EXPECT_STREQ("Not a triangle", IsTriangle(70, 20, 174));
+    EXPECT_STREQ("Scalene", IsTriangle(70, 190, 174));
+  }
+
+  TEST(IsTriangleTest, StrongRobust) {
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 0, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 0, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 0, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 0, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 201, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 201, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 201, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 201, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 45, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 45, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 45, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 45, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 115, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 115, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 115, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 115, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 0, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 0, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 0, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 0, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 201, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 201, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 201, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 201, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 45, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 45, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 45, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 45, 169));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 115, 0));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 115, 201));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 115, 24));
+    EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(201, 115, 169));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 0, 0));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 0, 201));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 0, 24));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 0, 169));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 201, 0));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 201, 201));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 201, 24));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(81, 201, 169));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(81, 45, 0));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(81, 45, 201));
+    EXPECT_STREQ("Not a triangle", IsTriangle(81, 45, 24));
+    EXPECT_STREQ("Not a triangle", IsTriangle(81, 45, 169));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(81, 115, 0));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(81, 115, 201));
+    EXPECT_STREQ("Not a triangle", IsTriangle(81, 115, 24));
+    EXPECT_STREQ("Scalene", IsTriangle(81, 115, 169));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 0, 0));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 0, 201));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 0, 24));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 0, 169));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 201, 0));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 201, 201));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 201, 24));
+    EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(169, 201, 169));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(169, 45, 0));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(169, 45, 201));
+    EXPECT_STREQ("Not a triangle", IsTriangle(169, 45, 24));
+    EXPECT_STREQ("Isosceles", IsTriangle(169, 45, 169));
+    EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(169, 115, 0));
+    EXPECT_STREQ("Equilateral", IsTriangle(169, 169, 169));
+    EXPECT_STREQ("Not a triangle", IsTriangle(169, 115, 24));
+    EXPECT_STREQ("Isosceles", IsTriangle(169, 115, 169));
+  }
+
 }
