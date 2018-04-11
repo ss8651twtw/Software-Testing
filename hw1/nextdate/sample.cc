@@ -47,28 +47,31 @@ char* NextDate(int year, int month, int day) {
         // M2 case
         case 1: case 3: case 5: case 7: case 8: case 10:
             if (day < 31) next.day++;
-            else {
+            else if (day == 31) {
                 next.day = 1;
                 next.month++;
             }
+            else return Msg(next, 1);
             break;
         // M1 case
         case 4: case 6: case 9: case 11:
             if (day < 30) next.day++;
-            else {
+            else if (day == 30){
                 next.day = 1;
                 next.month++;
             }
+            else return Msg(next, 1);
             break;
         // M3 case
         case 12:
             if (day < 31) next.day++;
-            else {
+            else if (day == 31) {
                 next.day = 1;
                 next.month = 1;
                 next.year++;
                 if (next.year > MAXY) return OutRange(next.year);
             }
+            else return Msg(next, 1);
             break;
         // M4 case
         case 2:
@@ -88,6 +91,7 @@ char* NextDate(int year, int month, int day) {
                     }
                     else Msg(next, 1);
                 }
+                else return Msg(next, 1);
             }
             break;
     }
