@@ -144,4 +144,97 @@ namespace {
     EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
   }
 
+  TEST(IsTriangleTest, WeakNormal) {
+    EXPECT_STREQ("Commission is $303.000000", Commission(24, 32, 7));
+    EXPECT_STREQ("Commission is $842.000000", Commission(55, 32, 59));
+    EXPECT_STREQ("Commission is $938.000000", Commission(55, 48, 59));
+  }
+
+  TEST(IsTriangleTest, SrongNormal) {
+    EXPECT_STREQ("Commission is $130.750000", Commission(10, 21, 5));
+    EXPECT_STREQ("Commission is $311.000000", Commission(10, 21, 47));
+    EXPECT_STREQ("Commission is $245.000000", Commission(10, 45, 5));
+    EXPECT_STREQ("Commission is $455.000000", Commission(10, 45, 47));
+    EXPECT_STREQ("Commission is $614.000000", Commission(67, 21, 5));
+    EXPECT_STREQ("Commission is $824.000000", Commission(67, 21, 47));
+    EXPECT_STREQ("Commission is $758.000000", Commission(67, 45, 5));
+    EXPECT_STREQ("Commission is $968.000000", Commission(67, 45, 47));
+  }
+
+  TEST(IsTriangleTest, WeakRobust) {
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(55, 79, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 31, 33));
+    EXPECT_STREQ("Commission is $1174.000000", Commission(55, 79, 69));
+    EXPECT_STREQ("Commission is $310.000000", Commission(11, 31, 33));
+  }
+
+  TEST(IsTriangleTest, StrongRobust) {
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 81, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 81, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 81, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 81, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 32, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 32, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 32, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 32, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 46, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 46, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 46, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 46, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 81, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 81, 30));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 81, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 32, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 32, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 32, 30));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 32, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 46, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 46, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 46, 30));
+    EXPECT_STREQ("Exceed production limits", Commission(71, 46, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 0, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 0, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 0, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 0, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 81, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(19, 81, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(19, 81, 30));
+    EXPECT_STREQ("Exceed production limits", Commission(19, 81, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 32, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(19, 32, 91));
+    EXPECT_STREQ("Commission is $373.000000", Commission(19, 32, 30));
+    EXPECT_STREQ("Commission is $578.000000", Commission(19, 32, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(19, 46, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(19, 46, 91));
+    EXPECT_STREQ("Commission is $457.000000", Commission(19, 46, 30));
+    EXPECT_STREQ("Commission is $662.000000", Commission(19, 46, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 0, 0));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 0, 91));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 0, 30));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 0, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 81, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(47, 81, 91));
+    EXPECT_STREQ("Exceed production limits", Commission(47, 81, 30));
+    EXPECT_STREQ("Exceed production limits", Commission(47, 81, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 32, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(47, 32, 91));
+    EXPECT_STREQ("Commission is $625.000000", Commission(47, 32, 30));
+    EXPECT_STREQ("Commission is $830.000000", Commission(47, 32, 71));
+    EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(47, 46, 0));
+    EXPECT_STREQ("Exceed production limits", Commission(47, 46, 91));
+    EXPECT_STREQ("Commission is $709.000000", Commission(47, 46, 30));
+    EXPECT_STREQ("Commission is $914.000000", Commission(47, 46, 71));
+  }
+
 }
