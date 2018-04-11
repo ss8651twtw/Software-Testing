@@ -237,4 +237,13 @@ namespace {
     EXPECT_STREQ("Commission is $914.000000", Commission(47, 46, 71));
   }
 
+  TEST(CommissionTest, DecisionTable) {
+    EXPECT_STREQ("Exceed production limits", Commission(75, 5, 5));
+    EXPECT_STREQ("Exceed production limits", Commission(65, 85, 5));
+    EXPECT_STREQ("Exceed production limits", Commission(65, 75, 95));
+    EXPECT_STREQ("Commission is $50.000000", Commission(5, 5, 5));
+    EXPECT_STREQ("Commission is $145.000000", Commission(5, 15, 25));
+    EXPECT_STREQ("Commission is $1320.000000", Commission(65, 75, 85));
+  }
+
 }
