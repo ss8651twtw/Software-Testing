@@ -144,13 +144,13 @@ namespace {
     EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
   }
 
-  TEST(IsTriangleTest, WeakNormal) {
+  TEST(CommissionTest, WeakNormal) {
     EXPECT_STREQ("Commission is $303.000000", Commission(24, 32, 7));
     EXPECT_STREQ("Commission is $842.000000", Commission(55, 32, 59));
     EXPECT_STREQ("Commission is $938.000000", Commission(55, 48, 59));
   }
 
-  TEST(IsTriangleTest, SrongNormal) {
+  TEST(CommissionTest, SrongNormal) {
     EXPECT_STREQ("Commission is $130.750000", Commission(10, 21, 5));
     EXPECT_STREQ("Commission is $311.000000", Commission(10, 21, 47));
     EXPECT_STREQ("Commission is $245.000000", Commission(10, 45, 5));
@@ -161,7 +161,7 @@ namespace {
     EXPECT_STREQ("Commission is $968.000000", Commission(67, 45, 47));
   }
 
-  TEST(IsTriangleTest, WeakRobust) {
+  TEST(CommissionTest, WeakRobust) {
     EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(71, 0, 91));
     EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(55, 79, 0));
     EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
@@ -170,7 +170,7 @@ namespace {
     EXPECT_STREQ("Commission is $310.000000", Commission(11, 31, 33));
   }
 
-  TEST(IsTriangleTest, StrongRobust) {
+  TEST(CommissionTest, StrongRobust) {
     EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 0));
     EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 91));
     EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 30));
