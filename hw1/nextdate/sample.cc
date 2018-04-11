@@ -42,6 +42,8 @@ char* NextDate(int year, int month, int day) {
     if (year < MINY || year > MAXY) return OutRange(year);
     // check month is valid
     if (month < MINM || month > MAXM) return Msg(next, 1);
+    // check day is large than zero
+    if (day < 1) return Msg(next, 1);
     int leapyear = IsLeap(year);
     switch (month) {
         // M2 case
