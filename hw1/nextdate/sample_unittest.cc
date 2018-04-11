@@ -224,4 +224,20 @@ namespace {
     EXPECT_STREQ("Tomorrow's date is 2007 07 18", NextDate(2007, 7, 17));
   }
 
+  TEST(IsTriangleTest, DecisionTable) {
+    EXPECT_STREQ("Tomorrow's date is 2001 04 16", NextDate(2001, 4, 15));
+    EXPECT_STREQ("Tomorrow's date is 2001 05 01", NextDate(2001, 4, 30));
+    EXPECT_STREQ("Cannot have 2001 04 31", NextDate(2001, 4, 31));
+    EXPECT_STREQ("Tomorrow's date is 2001 01 16", NextDate(2001, 1, 15));
+    EXPECT_STREQ("Tomorrow's date is 2001 02 01", NextDate(2001, 1, 31));
+    EXPECT_STREQ("Tomorrow's date is 2001 12 16", NextDate(2001, 12, 15));
+    EXPECT_STREQ("Tomorrow's date is 2002 01 01", NextDate(2001, 12, 31));
+    EXPECT_STREQ("Tomorrow's date is 2001 02 16", NextDate(2001, 2, 15));
+    EXPECT_STREQ("Tomorrow's date is 2004 02 29", NextDate(2004, 2, 28));
+    EXPECT_STREQ("Tomorrow's date is 2001 03 01", NextDate(2001, 2, 28));
+    EXPECT_STREQ("Tomorrow's date is 2004 03 01", NextDate(2004, 2, 29));
+    EXPECT_STREQ("Cannot have 2001 02 29", NextDate(2001, 2, 29));
+    EXPECT_STREQ("Cannot have 2001 02 30", NextDate(2001, 2, 30));
+  }
+
 }
