@@ -122,7 +122,7 @@ namespace {
     EXPECT_STREQ("Cannot have 2017 12 32", NextDate(2017, 12, 32));
     EXPECT_STREQ("Cannot have 2017 13 00", NextDate(2017, 13, 0));
     EXPECT_STREQ("Tomorrow's date is 2018 12 31", NextDate(2018, 12, 30));
-    EXPECT_STREQ("Tomorrow's date is 2019 01 01", NextDate(2018, 12, 31));
+    EXPECT_STREQ("2019 is over", NextDate(2018, 12, 31));
     EXPECT_STREQ("Cannot have 2018 12 32", NextDate(2018, 12, 32));
     EXPECT_STREQ("2019 is over", NextDate(2019, 1, 0));
     EXPECT_STREQ("2019 is over", NextDate(2019, 1, 1));

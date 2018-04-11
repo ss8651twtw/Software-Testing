@@ -91,7 +91,7 @@ char* NextDate(int year, int month, int day) {
                         next.day = 1;
                         next.month++;
                     }
-                    else Msg(next, 1);
+                    else return Msg(next, 1);
                 }
                 else return Msg(next, 1);
             }
