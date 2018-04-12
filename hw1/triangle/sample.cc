@@ -23,6 +23,7 @@ char* Msg(const char* s) {
 }
 
 char* IsTriangle(int a, int b, int c) {
+    memset(ans, 0, sizeof(ans));
     // check the value range
     if (a < MIN || a > MAX) return OutRange(0);
     if (b < MIN || b > MAX) return OutRange(1);
