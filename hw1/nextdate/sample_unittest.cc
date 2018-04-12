@@ -4,7 +4,7 @@
 
 namespace {
 
-  TEST(NectDateTest, NormalBoundary_Normal) {
+  TEST(NextDateTest, NormalBoundary_Normal) {
     EXPECT_STREQ("Tomorrow's date is 1918 06 16", NextDate(1918, 6, 15));
     EXPECT_STREQ("Tomorrow's date is 1919 06 16", NextDate(1919, 6, 15));
     EXPECT_STREQ("Tomorrow's date is 1968 06 16", NextDate(1968, 6, 15));
