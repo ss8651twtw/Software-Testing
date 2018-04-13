@@ -137,7 +137,7 @@ namespace {
     EXPECT_STREQ("Tomorrow's date is 1969 09 03", NextDate(1969, 9, 2));
   }
 
-  TEST(NextDateTest, SrongNormal) {
+  TEST(NextDateTest, StrongNormal) {
     EXPECT_STREQ("Tomorrow's date is 1953 03 06", NextDate(1953, 3, 5));
     EXPECT_STREQ("Tomorrow's date is 1953 03 27", NextDate(1953, 3, 26));
     EXPECT_STREQ("Tomorrow's date is 1953 07 06", NextDate(1953, 7, 5));

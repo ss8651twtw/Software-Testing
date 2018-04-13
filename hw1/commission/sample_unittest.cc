@@ -150,7 +150,7 @@ namespace {
     EXPECT_STREQ("Commission is $938.000000", Commission(55, 48, 59));
   }
 
-  TEST(CommissionTest, SrongNormal) {
+  TEST(CommissionTest, StrongNormal) {
     EXPECT_STREQ("Commission is $130.750000", Commission(10, 21, 5));
     EXPECT_STREQ("Commission is $311.000000", Commission(10, 21, 47));
     EXPECT_STREQ("Commission is $245.000000", Commission(10, 45, 5));

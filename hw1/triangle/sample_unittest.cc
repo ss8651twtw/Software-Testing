@@ -147,7 +147,7 @@ namespace {
     EXPECT_STREQ("Scalene", IsTriangle(169, 146, 195));
   }
 
-  TEST(IsTriangleTest, SrongNormal) {
+  TEST(IsTriangleTest, StrongNormal) {
     EXPECT_STREQ("Scalene", IsTriangle(86, 24, 92));
     EXPECT_STREQ("Not a triangle", IsTriangle(86, 24, 180));
     EXPECT_STREQ("Scalene", IsTriangle(86, 103, 92));
