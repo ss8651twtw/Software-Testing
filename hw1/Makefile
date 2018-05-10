@@ -24,6 +24,9 @@ USER_DIR = triangle
 # the compiler doesn't generate warnings in Google Test headers.
 CPPFLAGS += -isystem $(GTEST_DIR)/include
 
+# Combine with gcov
+GCOVFLAGS += -fprofile-arcs -ftest-coverage
+
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -pthread
 
@@ -41,7 +44,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS) gtest.a gtest_main.a *.o
+	rm -f $(TESTS) gtest.a gtest_main.a *.o *.gcno *.gcda *.gcov
 
 # Builds gtest.a and gtest_main.a.
 
@@ -72,11 +75,11 @@ gtest_main.a : gtest-all.o gtest_main.o
 # function.
 
 sample.o : $(USER_DIR)/sample.cc $(USER_DIR)/sample.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/sample.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/sample.cc
 
 sample_unittest.o : $(USER_DIR)/sample_unittest.cc \
                      $(USER_DIR)/sample.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/sample_unittest.cc
 
 sample_unittest : sample.o sample_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
