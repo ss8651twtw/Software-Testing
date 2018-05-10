@@ -8,6 +8,7 @@ install:
 script:
   - make -C make
   - make -C make test
+  - make -C make gcov
 branches:
   only:
     - master
