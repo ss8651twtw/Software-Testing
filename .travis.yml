@@ -1,0 +1,11 @@
+language: cpp
+os:
+  - linux
+compiler:
+  - g++
+script:
+  - make -C make
+  - make -C make test
+branches:
+  only:
+    - master
