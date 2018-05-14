@@ -83,3 +83,9 @@ sample_unittest.o : $(USER_DIR)/sample_unittest.cc \
 
 sample_unittest : sample.o sample_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
+
+test: $(USER_DIR)/sample_unittest
+	$(USER_DIR)/sample_unittest
+
+gcov: $(USER_DIR)/sample_unittest
+	gcov $(USER_DIR)/sample.cc

@@ -8,14 +8,14 @@ all:
 	make -C $(DIR)/p_commission
 
 test:
-	$(DIR)/p_triangle/$(TARGET)
-	$(DIR)/p_nextdate/$(TARGET)
-	$(DIR)/p_commission/$(TARGET)
+	make -C $(DIR)/p_triangle test
+	make -C $(DIR)/p_nextdate test
+	make -C $(DIR)/p_commission test
 
 gcov:
-	gcov $(DIR)/p_triangle/$(SRC)
-	gcov $(DIR)/p_nextdate/$(SRC)
-	gcov $(DIR)/p_commission/$(SRC)
+	make -C $(DIR)/p_triangle gcov
+	make -C $(DIR)/p_nextdate gcov
+	make -C $(DIR)/p_commission gcov
 
 clean:
 	make -C $(DIR)/p_triangle clean
