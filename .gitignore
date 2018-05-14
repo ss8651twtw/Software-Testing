@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+*.gcov
+*.gcda
+*.gcno
+sample_unittest
