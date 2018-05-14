@@ -1,27 +1,24 @@
-DIR = ../hw1
-TARGET = $(DIR)/sample_unittest
-SRC = $(DIR)/sample.cc
+DIR = ..
+TARGET = sample_unittest
+SRC = sample.cc
 
 all:
-	make -C $(DIR) USER_DIR=triangle -B
-	make -C $(DIR) USER_DIR=nextdate -B
-	make -C $(DIR) USER_DIR=commission -B
+	make -C $(DIR)/p_triangle
+	make -C $(DIR)/p_nextdate
+	make -C $(DIR)/p_commission
 
 test:
-	make -C $(DIR) USER_DIR=triangle -B
-	$(TARGET)
-	make -C $(DIR) USER_DIR=nextdate -B
-	$(TARGET)
-	make -C $(DIR) USER_DIR=commission -B
-	$(TARGET)
+	$(DIR)/p_triangle/$(TARGET)
+	$(DIR)/p_nextdate/$(TARGET)
+	$(DIR)/p_commission/$(TARGET)
 
 gcov:
-	make -C $(DIR) USER_DIR=triangle -B
-	$(TARGET)
-	gcov $(SRC)
-	make -C $(DIR) USER_DIR=nextdate -B
-	$(TARGET)
-	gcov $(SRC)
-	make -C $(DIR) USER_DIR=commission -B
-	$(TARGET)
-	gcov $(SRC)
+	gcov $(DIR)/p_triangle/$(SRC)
+	gcov $(DIR)/p_nextdate/$(SRC)
+	gcov $(DIR)/p_commission/$(SRC)
+
+clean:
+	make -C $(DIR)/p_triangle clean
+	make -C $(DIR)/p_nextdate clean
+	make -C $(DIR)/p_commission clean
+
