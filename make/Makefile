@@ -16,3 +16,9 @@ gcov:
 	gcov $(DIR)/p_triangle/$(SRC)
 	gcov $(DIR)/p_nextdate/$(SRC)
 	gcov $(DIR)/p_commission/$(SRC)
+
+clean:
+	make -C $(DIR)/p_triangle clean
+	make -C $(DIR)/p_nextdate clean
+	make -C $(DIR)/p_commission clean
+
