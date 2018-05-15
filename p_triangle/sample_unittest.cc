@@ -248,4 +248,41 @@ namespace {
         EXPECT_STREQ("Scalene", IsTriangle(3, 4, 5));
     }
 
+    TEST(IsTriangleTest, C0) {
+        EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(0, 50, 100));
+        EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(30, 400, 70));
+        EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(1, 1, -123));
+        EXPECT_STREQ("Equilateral", IsTriangle(33, 33, 33));
+        EXPECT_STREQ("Isosceles", IsTriangle(50, 50, 40));
+        EXPECT_STREQ("Scalene", IsTriangle(3, 4, 5));
+        EXPECT_STREQ("Not a triangle", IsTriangle(198, 45, 24));
+    }
+    
+    TEST(IsTriangleTest, C1) {
+        EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(1000, 1000, 1000));
+        EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(100, -1234, 0));
+        EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(50, 200, 432));
+        EXPECT_STREQ("Not a triangle", IsTriangle(44, 45, 200));
+        EXPECT_STREQ("Equilateral", IsTriangle(1, 1, 1));
+        EXPECT_STREQ("Isosceles", IsTriangle(44, 50, 44));
+        EXPECT_STREQ("Scalene", IsTriangle(33, 44, 55));
+    }
+
+    TEST(IsTriangleTest, MCDC) {
+        EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(-1, 50, 20));
+        EXPECT_STREQ("Value of a is not in the range of permited values", IsTriangle(999999, 30, 168));
+        EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(25, -12, 0));
+        EXPECT_STREQ("Value of b is not in the range of permited values", IsTriangle(100, 9876, 100));
+        EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(120, 20, -432));
+        EXPECT_STREQ("Value of c is not in the range of permited values", IsTriangle(50, 30, 201));
+        EXPECT_STREQ("Not a triangle", IsTriangle(49, 1, 200));
+        EXPECT_STREQ("Not a triangle", IsTriangle(2, 80, 60));
+        EXPECT_STREQ("Not a triangle", IsTriangle(60, 30, 30));
+        EXPECT_STREQ("Isosceles", IsTriangle(32, 32, 44));
+        EXPECT_STREQ("Isosceles", IsTriangle(32, 54, 54));
+        EXPECT_STREQ("Isosceles", IsTriangle(68, 54, 68));
+        EXPECT_STREQ("Equilateral", IsTriangle(200, 200, 200));
+        EXPECT_STREQ("Scalene", IsTriangle(123, 124, 125));
+    }
+
 }
