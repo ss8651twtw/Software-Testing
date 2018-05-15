@@ -47,55 +47,55 @@ char* NextDate(int year, int month, int day) {
     int leapyear = IsLeap(year);
     switch (month) {
         // M2 case
-        case 1: case 3: case 5: case 7: case 8: case 10:
-            if (day < 31) next.day++;
-            else if (day == 31) {
-                next.day = 1;
-                next.month++;
-            }
-            else return Msg(next, 1);
-            break;
+    case 1: case 3: case 5: case 7: case 8: case 10:
+        if (day < 31) next.day++;
+        else if (day == 31) {
+            next.day = 1;
+            next.month++;
+        }
+        else return Msg(next, 1);
+        break;
         // M1 case
-        case 4: case 6: case 9: case 11:
-            if (day < 30) next.day++;
-            else if (day == 30){
-                next.day = 1;
-                next.month++;
-            }
-            else return Msg(next, 1);
-            break;
+    case 4: case 6: case 9: case 11:
+        if (day < 30) next.day++;
+        else if (day == 30){
+            next.day = 1;
+            next.month++;
+        }
+        else return Msg(next, 1);
+        break;
         // M3 case
-        case 12:
-            if (day < 31) next.day++;
-            else if (day == 31) {
-                next.day = 1;
-                next.month = 1;
-                next.year++;
-                if (next.year > MAXY) return OutRange(next.year);
-            }
-            else return Msg(next, 1);
-            break;
+    case 12:
+        if (day < 31) next.day++;
+        else if (day == 31) {
+            next.day = 1;
+            next.month = 1;
+            next.year++;
+            if (next.year > MAXY) return OutRange(next.year);
+        }
+        else return Msg(next, 1);
+        break;
         // M4 case
-        case 2:
-            if (day < 28) next.day++;
-            else {
-                if (day == 28) {
-                    if (leapyear) next.day++;
-                    else {
-                        next.day = 1;
-                        next.month++;
-                    }
+    case 2:
+        if (day < 28) next.day++;
+        else {
+            if (day == 28) {
+                if (leapyear) next.day++;
+                else {
+                    next.day = 1;
+                    next.month++;
                 }
-                else if (day == 29) {
-                    if (leapyear) {
-                        next.day = 1;
-                        next.month++;
-                    }
-                    else return Msg(next, 1);
+            }
+            else if (day == 29) {
+                if (leapyear) {
+                    next.day = 1;
+                    next.month++;
                 }
                 else return Msg(next, 1);
             }
-            break;
+            else return Msg(next, 1);
+        }
+        break;
     }
     return Msg(next, 0);
 }
