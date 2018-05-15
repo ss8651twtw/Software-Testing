@@ -246,4 +246,40 @@ namespace {
         EXPECT_STREQ("Commission is $1320.000000", Commission(65, 75, 85));
     }
 
+    TEST(CommissionTest, C0) {
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 0));
+        EXPECT_STREQ("Exceed production limits", Commission(71, 81, 91));
+        EXPECT_STREQ("Commission is $696.000000", Commission(33, 44, 55));
+        EXPECT_STREQ("Commission is $115.000000", Commission(3, 13, 23));
+        EXPECT_STREQ("Commission is $30.000000", Commission(3, 3, 3));
+    }
+
+    TEST(CommissionTest, C1) {
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(1, 0, 3));
+        EXPECT_STREQ("Exceed production limits", Commission(999, 999, 999));
+        EXPECT_STREQ("Commission is $266.000000", Commission(20, 21, 20));
+        EXPECT_STREQ("Commission is $106.750000", Commission(11, 10, 10));
+        EXPECT_STREQ("Commission is $82.000000", Commission(9, 8, 7));
+    }
+
+    TEST(CommissionTest, MCDC) {
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(-2, -4, -8));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(0, 0, 3));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(-1, 80, -3));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(5, -80, 0));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(-999, 80, 1));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(50, 0, 70));
+        EXPECT_STREQ("Have to sell at least one lock, one stock, and one barrel", Commission(70, 1, 0));
+        EXPECT_STREQ("Exceed production limits", Commission(75, 85, 95));
+        EXPECT_STREQ("Exceed production limits", Commission(71, 81, 9));
+        EXPECT_STREQ("Exceed production limits", Commission(999, 2, 999));
+        EXPECT_STREQ("Exceed production limits", Commission(6, 200, 100));
+        EXPECT_STREQ("Exceed production limits", Commission(80, 1, 1));
+        EXPECT_STREQ("Exceed production limits", Commission(70, 88, 90));
+        EXPECT_STREQ("Exceed production limits", Commission(70, 80, 99));
+        EXPECT_STREQ("Commission is $460.000000", Commission(30, 30, 30));
+        EXPECT_STREQ("Commission is $211.750000", Commission(1, 15, 50));
+        EXPECT_STREQ("Commission is $74.000000", Commission(2, 20, 2));
+    }
+
 }
