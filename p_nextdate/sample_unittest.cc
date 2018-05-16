@@ -240,4 +240,73 @@ namespace {
         EXPECT_STREQ("Cannot have 2001 02 30", NextDate(2001, 2, 30));
     }
 
+    TEST(NextDateTest, C0) {
+        EXPECT_STREQ("2020 is over", NextDate(2020, 9, 9));
+        EXPECT_STREQ("Cannot have 1968 00 15", NextDate(1968, 0, 15));
+        EXPECT_STREQ("Cannot have 1999 12 35", NextDate(1999, 12, 35));
+        EXPECT_STREQ("Tomorrow's date is 2001 07 14", NextDate(2001, 7, 13));
+        EXPECT_STREQ("Tomorrow's date is 2000 08 01", NextDate(2000, 7, 31));
+        EXPECT_STREQ("Cannot have 1997 10 32", NextDate(1997, 10, 32));
+        EXPECT_STREQ("Tomorrow's date is 1996 04 03", NextDate(1996, 4, 2));
+        EXPECT_STREQ("Tomorrow's date is 1993 12 01", NextDate(1993, 11, 30));
+        EXPECT_STREQ("Cannot have 2015 06 31", NextDate(2015, 6, 31));
+        EXPECT_STREQ("Tomorrow's date is 2016 12 30", NextDate(2016, 12, 29));
+        EXPECT_STREQ("2019 is over", NextDate(2018, 12, 31));
+        EXPECT_STREQ("Tomorrow's date is 2018 01 01", NextDate(2017, 12, 31));
+        EXPECT_STREQ("Cannot have 1920 12 40", NextDate(1920, 12, 40));
+        EXPECT_STREQ("Tomorrow's date is 1942 02 05", NextDate(1942, 2, 4));
+        EXPECT_STREQ("Tomorrow's date is 2004 02 29", NextDate(2004, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2005 03 01", NextDate(2005, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2000 03 01", NextDate(2000, 2, 29));
+        EXPECT_STREQ("Cannot have 1999 02 29", NextDate(1999, 2, 29));
+        EXPECT_STREQ("Cannot have 2000 02 31", NextDate(2000, 2, 31));
+    }
+
+    TEST(NextDateTest, C1) {
+        EXPECT_STREQ("1900 is over", NextDate(1900, 1, 1));
+        EXPECT_STREQ("Cannot have 1966 15 13", NextDate(1966, 15, 13));
+        EXPECT_STREQ("Cannot have 1998 12 999", NextDate(1998, 12, 999));
+        EXPECT_STREQ("Tomorrow's date is 2010 08 16", NextDate(2010, 8, 15));
+        EXPECT_STREQ("Tomorrow's date is 2000 11 01", NextDate(2000, 10, 31));
+        EXPECT_STREQ("Cannot have 1990 01 430", NextDate(1990, 1, 430));
+        EXPECT_STREQ("Tomorrow's date is 1976 09 22", NextDate(1976, 9, 21));
+        EXPECT_STREQ("Tomorrow's date is 1943 07 01", NextDate(1943, 6, 30));
+        EXPECT_STREQ("Cannot have 2013 11 31", NextDate(2013, 11, 31));
+        EXPECT_STREQ("Tomorrow's date is 2018 12 03", NextDate(2018, 12, 2));
+        EXPECT_STREQ("2019 is over", NextDate(2018, 12, 31));
+        EXPECT_STREQ("Tomorrow's date is 2014 01 01", NextDate(2013, 12, 31));
+        EXPECT_STREQ("Cannot have 1923 12 103", NextDate(1923, 12, 103));
+        EXPECT_STREQ("Tomorrow's date is 1955 02 28", NextDate(1955, 2, 27));
+        EXPECT_STREQ("Tomorrow's date is 2016 02 29", NextDate(2016, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2001 03 01", NextDate(2001, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2000 03 01", NextDate(2000, 2, 29));
+        EXPECT_STREQ("Cannot have 1991 02 29", NextDate(1991, 2, 29));
+        EXPECT_STREQ("Cannot have 2004 02 31", NextDate(2004, 2, 31));
+    }
+
+    TEST(NextDateTest, MCDC) {
+        EXPECT_STREQ("1910 is over", NextDate(1910, 3, 8));
+        EXPECT_STREQ("4000 is over", NextDate(4000, 12, 1));
+        EXPECT_STREQ("Cannot have 1934 15 30", NextDate(1934, 15, 30));
+        EXPECT_STREQ("Cannot have 1969 -3 01", NextDate(1969, -3, 1));
+        EXPECT_STREQ("Cannot have 1948 12 00", NextDate(1948, 12, 0));
+        EXPECT_STREQ("Cannot have 2011 12 123", NextDate(2011, 12, 123));
+        EXPECT_STREQ("Tomorrow's date is 1925 01 26", NextDate(1925, 1, 25));
+        EXPECT_STREQ("Tomorrow's date is 2001 04 01", NextDate(2001, 3, 31));
+        EXPECT_STREQ("Cannot have 1980 05 220", NextDate(1980, 5, 220));
+        EXPECT_STREQ("Tomorrow's date is 1976 09 30", NextDate(1976, 9, 29));
+        EXPECT_STREQ("Tomorrow's date is 1944 05 01", NextDate(1944, 4, 30));
+        EXPECT_STREQ("Cannot have 2015 11 330", NextDate(2015, 11, 330));
+        EXPECT_STREQ("Tomorrow's date is 2017 12 09", NextDate(2017, 12, 8));
+        EXPECT_STREQ("2019 is over", NextDate(2018, 12, 31));
+        EXPECT_STREQ("Tomorrow's date is 2000 01 01", NextDate(1999, 12, 31));
+        EXPECT_STREQ("Cannot have 1923 12 123", NextDate(1923, 12, 123));
+        EXPECT_STREQ("Tomorrow's date is 1963 02 28", NextDate(1963, 2, 27));
+        EXPECT_STREQ("Tomorrow's date is 2012 02 29", NextDate(2012, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2011 03 01", NextDate(2011, 2, 28));
+        EXPECT_STREQ("Tomorrow's date is 2000 03 01", NextDate(2000, 2, 29));
+        EXPECT_STREQ("Cannot have 1993 02 29", NextDate(1993, 2, 29));
+        EXPECT_STREQ("Cannot have 2008 02 31", NextDate(2008, 2, 31));
+    }
+
 }
